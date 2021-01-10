@@ -11,6 +11,7 @@
     --btn-bg-right: rgba(50, 44, 240, 1);
     --hover-low-width: 25%;
     --hover-high-width: 75%;
+    --speed: 1000ms
 }
 
 body {
@@ -32,7 +33,7 @@ body {
     position: absolute;
     height: 100%;
     width: 50%;
-    transition: width 700ms ease;
+    transition: width var(--speed) ease-in-out;
     white-space: nowrap;
 }
 
@@ -114,4 +115,38 @@ h1 {
 
 .hoverRight .right {
     width: var(--hover-high-width);
+}
+
+@media(max-width: 480px) {
+    .split h1 {
+        font-size: 50px;
+    }
+    .split .btn {
+        display: flex;
+        text-orientation: upright;
+        font-size: 17px;
+        white-space:pre-wrap;
+    }
+}
+
+@media(max-width: 740px) {
+    :root {
+        --hover-low-width: 45%;
+        --hover-high-width: 55%;
+    }
+
+    h1 {
+        font-size: 65px;
+    }
+
+    .btn {
+        font-size: 20px;
+    }
+}
+
+@media(max-width: 1050px) {
+    :root {
+        --hover-low-width: 35%;
+        --hover-high-width: 65%;
+    }
 }
